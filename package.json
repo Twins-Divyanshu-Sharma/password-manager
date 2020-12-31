@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm i && node server/index.js",
+    "start": "npm i && nodemon server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "type": "module",
@@ -20,9 +20,14 @@
   },
   "homepage": "https://github.com/utkarsh-shekhar/password-manager#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5"
   },
   "devDependencies": {
-    "eslint": "^7.16.0"
+    "eslint": "^7.16.0",
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0"
   }
 }
