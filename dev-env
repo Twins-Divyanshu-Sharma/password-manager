@@ -14,3 +14,7 @@ if [[ $arg1 = 'logs' ]]; then
         docker-compose logs -ft
     fi
 fi
+
+if [[ $arg1 = 'stop' ]]; then
+    docker-compose down
+fi
