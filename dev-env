@@ -18,3 +18,14 @@ fi
 if [[ $arg1 = 'stop' ]]; then
     docker-compose down
 fi
+
+if [[ $arg1 = 'bash' ]]; then
+    if [[ $arg2 = '' ]]; then
+        arg2=web
+    fi
+    docker-compose exec $arg2 bash
+fi
+
+if [[ $arg1 = 'db' ]]; then
+    docker-compose exec db mysql -uroot -p'root' -h db -A password_manager
+fi
