@@ -14,7 +14,7 @@ services:
       - DB_USER=root
       - DB_PASSWWORD=root
       - DB_HOST=db
-    command: "npm start"
+    command: tail -f /dev/null
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
