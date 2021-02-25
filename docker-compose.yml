@@ -7,18 +7,27 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - .:/app
+      - ./:/app
     environment:
       - PORT=5000
       - DATABASE=password_manager
       - DB_USER=root
       - DB_PASSWWORD=root
       - DB_HOST=db
+    depends_on:
+      - db
     command: tail -f /dev/null
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     environment:
-      MYSQL_DATABASE: password_manager
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER_PASSWORD: ${MYSQL_USER_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_TCP_PORT: ${DB_PORT}
+    expose:
+        - ${DB_PORT}
+    ports:
+        - ${DB_PORT}:${DB_PORT}

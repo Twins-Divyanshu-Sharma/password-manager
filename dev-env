@@ -53,5 +53,5 @@ if [[ $arg1 = 'bash' ]]; then
 fi
 
 if [[ $arg1 = 'db' ]]; then
-    docker-compose exec db mysql -uroot -p'root' -h db -A password_manager
+    docker-compose exec db mysql -u 'root' -p'root' -h db -A password_manager
 fi
